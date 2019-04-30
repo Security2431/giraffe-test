@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "cuid": "^2.1.6",
     "history": "^4.9.0",
+    "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-app-rewire-eslint": "^0.2.3",
@@ -23,7 +25,7 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
-    "lint": "yarn run eslint 'src/**/*.js'",
+    "lint": "yarn run eslint src/",
     "lint:fix": "yarn run lint --fix",
     "format": "yarn run prettier-eslint --write '**/*.{js,json}'",
     "precommit": "lint-staged",

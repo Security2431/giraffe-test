@@ -1,12 +1,13 @@
 module.exports = {
-  parser: 'babel-eslint',
-  extends: 'airbnb',
+  parser: "babel-eslint",
+  extends: ["airbnb", "prettier", "prettier/react"],
+  plugins: ["prettier"],
   env: {
-    browser: true,
+    browser: true
   },
   rules: {
-    'react/jsx-filename-extension': 'off',
-    semi: [2, 'never'],
-    'linebreak-style': 0,
-  },
-}
+    "react/jsx-filename-extension": "off",
+    semi: [2, "never"],
+    "linebreak-style": 0
+  }
+};
