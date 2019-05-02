@@ -1,32 +1,34 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 class AuthForm extends React.Component {
   state = {
     username: {
-      value: ""
+      value: '',
     },
     password: {
-      value: ""
-    }
+      value: '',
+    },
   };
 
-  handleInputChange = event => {
+  handleInputChange = (event) => {
     event.persist();
     const { name, value } = event.target;
 
     this.setState(prevState => ({
       [name]: {
         ...prevState[name],
-        value
-      }
+        value,
+      },
     }));
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     const { username, password } = this.state;
 
+    // eslint-disable-next-line
     this.props.onSubmit(username.value, password.value);
   };
 
@@ -80,8 +82,8 @@ class AuthForm extends React.Component {
               <b>{activeUser}</b>
             </div>
             <div className="col">
-              <button className="btn btn-link" onClick={logout}>
-                Log out
+              <button className="btn btn-link" type="button" onClick={logout}>
+                <Link to="/">Log out</Link>
               </button>
             </div>
           </div>

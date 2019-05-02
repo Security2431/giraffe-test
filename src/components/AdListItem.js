@@ -1,14 +1,15 @@
-import React from "react";
-import moment from "moment";
+import React from 'react';
+import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 const theme = {
   Card: {
-    marginBottom: "30px"
-  }
+    marginBottom: '30px',
+  },
 };
 
 class AdListItem extends React.Component {
-  handleDeleteClick = (event, id) => {
+  handleDeleteClick = (event) => {
     event.preventDefault();
     // ...
   };
@@ -18,9 +19,7 @@ class AdListItem extends React.Component {
       return text;
     }
 
-    return text && text.length > textLength
-      ? `${text.slice(0, textLength)} ...`
-      : text;
+    return text && text.length > textLength ? `${text.slice(0, textLength)}\xa0...` : text;
   };
 
   render() {
@@ -31,15 +30,17 @@ class AdListItem extends React.Component {
       author_name: author,
       created_at_datetime: date,
       descrLength,
-      activeUser
+      activeUser,
     } = this.props;
 
-    const datetime = moment(date).format("DD/MM/YYYY");
+    const datetime = moment(date).format('DD/MM/YYYY');
     const isAdFromMe = activeUser === author;
 
     return (
       <div className="card-body" style={theme.Card}>
-        <h5 className="card-title">{title}</h5>
+        <h5 className="card-title">
+          <Link to={`${id}`}>{title}</Link>
+        </h5>
         <p className="d-flex justify-content-beetween no-gutters card-text">
           <small className="text-muted col-sm-6">{author}</small>
           <small className="text-muted text-right col-sm-6">{datetime}</small>
@@ -47,9 +48,12 @@ class AdListItem extends React.Component {
         <p className="card-text">{this.sliceText(description, descrLength)}</p>
         {isAdFromMe && (
           <div className="btn-group d-flex">
-            <button className="btn btn-dark">Edit</button>
+            <Link className="btn btn-dark" to={`/edit/${id}`}>
+              Edit
+            </Link>
             <button
               className="btn btn-warning"
+              type="button"
               onClick={e => this.handleDeleteClick(e, id)}
             >
               Delete

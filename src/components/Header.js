@@ -1,36 +1,41 @@
-import React from "react";
-import AuthForm from "./AuthForm";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import AuthForm from './AuthForm';
 
 const styles = {
   headerStyle: {
-    padding: "15px 0",
-    borderBottom: "1px solid #eee"
-  }
+    padding: '15px 0',
+    borderBottom: '1px solid #eee',
+  },
 };
 
-const Header = ({ isAuthenticated, activeUser, auth, logout }) => {
-  return (
-    <header style={styles.headerStyle}>
-      <div className="container-fluid">
-        <div className="row justify-content-end align-items-center">
-          {isAuthenticated && (
-            <div className="col-auto">
-              <button className="btn btn-success">Create Ad</button>
-            </div>
-          )}
-
+const Header = ({
+  isAuthenticated, activeUser, auth, logout,
+}) => (
+  <header style={styles.headerStyle}>
+    <div className="container-fluid">
+      <div className="row justify-content-end align-items-center">
+        {isAuthenticated && (
           <div className="col-auto">
-            <AuthForm
-              isAuthenticated={isAuthenticated}
-              activeUser={activeUser}
-              onSubmit={auth}
-              logout={logout}
-            />
+            <Link to="/edit">
+              <button className="btn btn-danger" type="button">
+                Create Ad
+              </button>
+            </Link>
           </div>
+        )}
+
+        <div className="col-auto">
+          <AuthForm
+            isAuthenticated={isAuthenticated}
+            activeUser={activeUser}
+            onSubmit={auth}
+            logout={logout}
+          />
         </div>
       </div>
-    </header>
-  );
-};
+    </div>
+  </header>
+);
 
 export default Header;

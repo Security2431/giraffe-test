@@ -1,30 +1,34 @@
-import React from "react";
+import React from 'react';
 
 class AdListPagination extends React.Component {
   state = {
-    currentPage: 1
+    currentPage: 1,
   };
 
   componentDidMount() {
+    // eslint-disable-next-line
     this.props.currentPage(this.state.currentPage);
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate() {
+    const { currentPage } = this.state;
     const { pageSize, adsCount } = this.props;
     const pagesCount = Math.ceil(adsCount / pageSize);
 
-    if (pagesCount && pagesCount < this.state.currentPage) {
+    if (pagesCount && pagesCount < currentPage) {
       this.handleClick(pagesCount);
     }
   }
 
   handleClick = (index, e) => {
+    // eslint-disable-next-line
     e && e.preventDefault && e.preventDefault();
 
+    // eslint-disable-next-line
     this.props.currentPage(index);
 
     this.setState({
-      currentPage: index
+      currentPage: index,
     });
   };
 
@@ -33,51 +37,48 @@ class AdListPagination extends React.Component {
     const { pageSize, adsCount } = this.props;
     const pagesCount = Math.ceil(adsCount / pageSize);
 
-    console.log(currentPage <= 1);
-
     return pageSize < adsCount ? (
       <React.Fragment>
         <nav aria-label="Page navigation example">
           <ul className="pagination">
-            <li className={`page-item ${currentPage <= 1 && "disabled"}`}>
-              <a
+            <li className={`page-item ${currentPage <= 1 && 'disabled'}`}>
+              <button
                 className="page-link"
-                href="#"
+                type="button"
                 aria-label="Previous"
                 onClick={e => this.handleClick(currentPage - 1, e)}
               >
                 <span aria-hidden="true">&laquo;</span>
                 <span className="sr-only">Previous</span>
-              </a>
+              </button>
             </li>
 
             {[...Array(pagesCount)].map((page, i) => (
               <li
-                className={`page-item ${i + 1 === currentPage && "active"}`}
+                className={`page-item ${i + 1 === currentPage && 'active'}`}
+                // eslint-disable-next-line
                 key={i}
               >
-                <a
+                <button
                   className="page-link"
-                  href="#"
+                  type="button"
                   onClick={e => this.handleClick(i + 1, e)}
                 >
                   {i + 1}
-                </a>
+                </button>
               </li>
             ))}
 
-            <li
-              className={`page-item ${currentPage >= pagesCount && "disabled"}`}
-            >
-              <a
+            <li className={`page-item ${currentPage >= pagesCount && 'disabled'}`}>
+              <button
                 className="page-link"
-                href="#"
+                type="button"
                 aria-label="Next"
                 onClick={e => this.handleClick(currentPage + 1, e)}
               >
                 <span aria-hidden="true">&raquo;</span>
                 <span className="sr-only">Next</span>
-              </a>
+              </button>
             </li>
           </ul>
         </nav>
