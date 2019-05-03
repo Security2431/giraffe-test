@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AuthForm from './AuthForm';
 
@@ -37,5 +38,12 @@ const Header = ({
     </div>
   </header>
 );
+
+Header.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+  activeUser: PropTypes.string.isRequired,
+  auth: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired,
+};
 
 export default Header;

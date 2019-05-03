@@ -1,6 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AdListPagination extends React.Component {
+  static propTypes = {
+    pageSize: PropTypes.number.isRequired,
+    adsCount: PropTypes.number.isRequired,
+  };
+
   state = {
     currentPage: 1,
   };

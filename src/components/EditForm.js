@@ -2,10 +2,27 @@
 /* eslint jsx-a11y/label-has-for: 0 */
 /* eslint jsx-a11y/label-has-associated-control: 0 */
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import cuid from 'cuid';
 
 class EditForm extends React.Component {
+  static propTypes = {
+    activeUser: PropTypes.string.isRequired,
+    ad: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      author_name: PropTypes.string.isRequired,
+      created_at_datetime: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    }),
+    onSubmit: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    ad: null,
+  };
+
   state = {
     title: {
       value: '',

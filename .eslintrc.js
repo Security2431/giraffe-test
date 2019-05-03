@@ -8,6 +8,5 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': 'off',
     'linebreak-style': 0,
-    'react/prop-types': 0,
   },
 };

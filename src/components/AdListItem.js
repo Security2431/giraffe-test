@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 
@@ -9,6 +10,16 @@ const theme = {
 };
 
 class AdListItem extends React.Component {
+  static propTypes = {
+    _id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    author_name: PropTypes.string.isRequired,
+    created_at_datetime: PropTypes.string.isRequired,
+    activeUser: PropTypes.string.isRequired,
+    descrFixedLength: PropTypes.number.isRequired,
+  };
+
   handleDeleteClick = (event, id) => {
     event.preventDefault();
 
@@ -31,7 +42,7 @@ class AdListItem extends React.Component {
       description,
       author_name: author,
       created_at_datetime: date,
-      descrLength,
+      descrFixedLength,
       activeUser,
     } = this.props;
 
@@ -47,7 +58,7 @@ class AdListItem extends React.Component {
           <small className="text-muted col-sm-6">{author}</small>
           <small className="text-muted text-right col-sm-6">{datetime}</small>
         </p>
-        <p className="card-text">{this.sliceText(description, descrLength)}</p>
+        <p className="card-text">{this.sliceText(description, descrFixedLength)}</p>
         {isAdFromMe && (
           <div className="btn-group d-flex">
             <Link className="btn btn-dark" to={`/edit/${id}`}>

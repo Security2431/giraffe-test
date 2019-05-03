@@ -1,9 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Header from './Header';
 import MainWrapper from './MainWrapper';
 import EditForm from './EditForm';
 
 class EditPage extends React.Component {
+  static propTypes = {
+    match: PropTypes.shape({
+      params: PropTypes.object.isRequired,
+    }).isRequired,
+    isAuthenticated: PropTypes.bool.isRequired,
+    activeUser: PropTypes.string.isRequired,
+    ad: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      author_name: PropTypes.string.isRequired,
+      created_at_datetime: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    }),
+    logout: PropTypes.func.isRequired,
+    fetchAd: PropTypes.func.isRequired,
+    createAd: PropTypes.func.isRequired,
+    unsetAd: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    ad: null,
+  };
+
   componentDidMount() {
     const {
       match: { params },

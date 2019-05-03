@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AdListItem from './AdListItem';
 import AdListPagination from './AdListPagination';
 
 const defaults = {
-  descrLength: 150,
+  descrFixedLength: 150,
   pageSize: 5,
 };
 
@@ -15,6 +16,22 @@ const theme = {
 };
 
 class AdList extends React.Component {
+  static propTypes = {
+    activeUser: PropTypes.string.isRequired,
+    ads: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      author_name: PropTypes.string.isRequired,
+      created_at_datetime: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    }),
+    deleteAd: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    ads: null,
+  };
+
   state = {
     currentPage: null,
   };
@@ -28,7 +45,7 @@ class AdList extends React.Component {
   render() {
     const { ads, activeUser, deleteAd } = this.props;
     const { currentPage } = this.state;
-    const { descrLength, pageSize } = defaults;
+    const { descrFixedLength, pageSize } = defaults;
 
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
@@ -42,7 +59,7 @@ class AdList extends React.Component {
           <div className="col-6 col-sm-4 col-lg-3 col-xl" style={theme.Col} key={id}>
             <AdListItem
               activeUser={activeUser}
-              descrLength={descrLength}
+              descrFixedLength={descrFixedLength}
               deleteAd={deleteAd}
               {...item}
             />

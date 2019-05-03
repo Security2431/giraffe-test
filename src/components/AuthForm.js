@@ -1,7 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 class AuthForm extends React.Component {
+  static propTypes = {
+    isAuthenticated: PropTypes.bool.isRequired,
+    activeUser: PropTypes.string.isRequired,
+    logout: PropTypes.func.isRequired,
+  };
+
   state = {
     username: {
       value: '',

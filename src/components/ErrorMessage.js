@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const theme = {
   alert: {
@@ -18,6 +19,14 @@ const theme = {
 };
 
 class ErrorMessage extends React.Component {
+  static propTypes = {
+    error: PropTypes.instanceOf(Error),
+  };
+
+  static defaultProps = {
+    error: null,
+  };
+
   state = {
     visible: false,
   };
