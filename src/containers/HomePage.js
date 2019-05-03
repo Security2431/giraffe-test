@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
   activeUser: state.auth.user,
   ads: fromAdv.getValues(state.adv.allAds),
-  // error: state.services.errors.auth
+  error: state.services.errors.auth,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(

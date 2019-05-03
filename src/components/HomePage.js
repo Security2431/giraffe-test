@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import AdList from './AdList';
 import MainWrapper from './MainWrapper';
+import ErrorMessage from './ErrorMessage';
 
 class HomePage extends React.Component {
   componentDidMount() {
@@ -13,7 +14,7 @@ class HomePage extends React.Component {
 
   render() {
     const {
-      auth, isAuthenticated, logout, activeUser, deleteAd, ads,
+      auth, isAuthenticated, logout, activeUser, deleteAd, ads, error,
     } = this.props;
 
     return (
@@ -27,6 +28,7 @@ class HomePage extends React.Component {
         <MainWrapper>
           <AdList activeUser={activeUser} ads={ads} deleteAd={deleteAd} />
         </MainWrapper>
+        <ErrorMessage error={error} />
       </React.Fragment>
     );
   }

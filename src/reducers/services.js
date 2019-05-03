@@ -18,17 +18,6 @@ export const errors = (state = initialState.errors, action) => {
     case types.LOGIN_SUCCESS:
     case types.LOGOUT_SUCCESS:
       return { ...state, auth: null };
-    case types.FETCH_ALL_ADS_FAILURE:
-    case types.FETCH_AD_FAILURE:
-    case types.CREATE_AD_FAILURE:
-    case types.DELETE_AD_FAILURE:
-      return { ...state, adv: action.payload.message };
-    case types.FETCH_ALL_ADS_SUCCESS:
-    case types.FETCH_AD_SUCCESS:
-    case types.CREATE_AD_SUCCESS:
-    case types.DELETE_AD_SUCCESS:
-      return { ...state, adv: null };
-
     default:
       return state;
   }
