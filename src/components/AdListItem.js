@@ -9,9 +9,11 @@ const theme = {
 };
 
 class AdListItem extends React.Component {
-  handleDeleteClick = (event) => {
+  handleDeleteClick = (event, id) => {
     event.preventDefault();
-    // ...
+
+    // eslint-disable-next-line
+    this.props.deleteAd(id);
   };
 
   sliceText = (text, textLength) => {

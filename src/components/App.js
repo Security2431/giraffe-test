@@ -1,17 +1,19 @@
 import React from 'react';
 import {
-  BrowserRouter as Router, Route, Switch, Redirect,
+  Router, Route, Switch, Redirect,
 } from 'react-router-dom';
-import HomePage from './HomePage';
-import EditPage from './EditPage';
-import AdPage from './AdPage';
+import PrivateRoute from '../containers/PrivateRoute';
+import HomePage from '../containers/HomePage';
+import EditPage from '../containers/EditPage';
+import AdPage from '../containers/AdPage';
+import history from '../utils/history';
 
 const App = () => (
-  <Router>
+  <Router history={history}>
     <Switch>
       <Route exact path="/" component={HomePage} />
-      <Route path="/edit/:adId?" component={EditPage} />
-      <Route path="/:adId?" component={AdPage} />
+      <PrivateRoute path="/edit/:adId?" component={EditPage} />
+      <PrivateRoute path="/:adId?" component={AdPage} />
       <Redirect to="/" />
     </Switch>
   </Router>

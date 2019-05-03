@@ -2,6 +2,8 @@
 /* eslint jsx-a11y/label-has-for: 0 */
 /* eslint jsx-a11y/label-has-associated-control: 0 */
 import React from 'react';
+import moment from 'moment';
+import cuid from 'cuid';
 
 class EditForm extends React.Component {
   state = {
@@ -53,7 +55,22 @@ class EditForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    // ...
+    const { title, description } = this.state;
+    const { activeUser, onSubmit, ad } = this.props;
+
+    // eslint-disable-next-line
+    const id = !!ad ? ad._id : cuid();
+
+    const params = {
+      ...ad,
+      _id: id,
+      author_name: activeUser,
+      created_at_datetime: moment().format(),
+      title: title.value,
+      description: description.value,
+    };
+
+    onSubmit(params);
   };
 
   render() {
@@ -85,11 +102,11 @@ class EditForm extends React.Component {
               Description
             </label>
             <div className="col-sm-10">
-              <input
+              <textarea
                 className="form-control"
                 id="description"
-                type="textarea"
                 name="description"
+                rows="8"
                 value={description.value}
                 autoComplete="description"
                 onChange={this.handleInputChange}

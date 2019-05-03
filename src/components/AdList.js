@@ -26,9 +26,9 @@ class AdList extends React.Component {
   };
 
   render() {
-    const { ads, activeUser } = this.props;
+    const { ads, activeUser, deleteAd } = this.props;
     const { currentPage } = this.state;
-    const { pageSize, descrLength } = defaults;
+    const { descrLength, pageSize } = defaults;
 
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
@@ -40,7 +40,12 @@ class AdList extends React.Component {
 
         return (
           <div className="col-6 col-sm-4 col-lg-3 col-xl" style={theme.Col} key={id}>
-            <AdListItem descrLength={descrLength} activeUser={activeUser} {...item} />
+            <AdListItem
+              activeUser={activeUser}
+              descrLength={descrLength}
+              deleteAd={deleteAd}
+              {...item}
+            />
           </div>
         );
       });

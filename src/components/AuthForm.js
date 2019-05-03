@@ -5,9 +5,11 @@ class AuthForm extends React.Component {
   state = {
     username: {
       value: '',
+      isValid: true,
     },
     password: {
       value: '',
+      isValid: true,
     },
   };
 

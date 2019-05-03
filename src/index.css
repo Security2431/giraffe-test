@@ -14,5 +14,5 @@ code {
 }
 
 .card-text, .card-title {
-  word-break: break-all;
+  word-break: break-word;
 }
