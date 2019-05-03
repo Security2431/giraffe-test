@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EditForm /> renders correctly 1`] = `
+<div
+  className="col-md-6 col-lg-5"
+>
+  <form
+    className="form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group row"
+    >
+      <label
+        className="col-sm-2"
+        htmlFor="title"
+      >
+        Title
+      </label>
+      <div
+        className="col-sm-10"
+      >
+        <input
+          autoComplete="title"
+          className="form-control"
+          id="title"
+          name="title"
+          onChange={[Function]}
+          required={true}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="form-group row"
+    >
+      <label
+        className="col-sm-2"
+        htmlFor="description"
+      >
+        Description
+      </label>
+      <div
+        className="col-sm-10"
+      >
+        <textarea
+          autoComplete="description"
+          className="form-control"
+          id="description"
+          name="description"
+          onChange={[Function]}
+          required={true}
+          rows="8"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="form-group row"
+    >
+      <div
+        className="col-sm-10 offset-sm-2"
+      >
+        <button
+          className="btn btn-primary btn-block"
+          type="submit"
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+`;

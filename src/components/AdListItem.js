@@ -46,7 +46,7 @@ class AdListItem extends React.Component {
       activeUser,
     } = this.props;
 
-    const datetime = moment(date).format('DD/MM/YYYY');
+    const datetime = moment(date).fromNow();
     const isAdFromMe = activeUser === author;
 
     return (

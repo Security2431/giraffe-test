@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AdListItem /> renders correctly 1`] = `
+<div
+  className="card-body"
+  style={
+    Object {
+      "marginBottom": "30px",
+    }
+  }
+>
+  <h5
+    className="card-title"
+  >
+    <a
+      href="/123"
+      onClick={[Function]}
+    >
+      Title
+    </a>
+  </h5>
+  <p
+    className="d-flex justify-content-beetween no-gutters card-text"
+  >
+    <small
+      className="text-muted col-sm-6"
+    >
+      Admin
+    </small>
+    <small
+      className="text-muted text-right col-sm-6"
+    >
+      2 days ago
+    </small>
+  </p>
+  <p
+    className="card-text"
+  >
+    Hello, World!
+  </p>
+  <div
+    className="btn-group d-flex"
+  >
+    <a
+      className="btn btn-dark"
+      href="/edit/123"
+      onClick={[Function]}
+    >
+      Edit
+    </a>
+    <button
+      className="btn btn-warning"
+      onClick={[Function]}
+      type="button"
+    >
+      Delete
+    </button>
+  </div>
+</div>
+`;

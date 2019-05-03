@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AdList /> renders correctly 1`] = `
+<div
+  className="col-12 d-flex justify-content-center"
+>
+  AdListPagination
+</div>
+`;

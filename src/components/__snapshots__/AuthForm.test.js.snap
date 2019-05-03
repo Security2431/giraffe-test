@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AuthForm /> renders correctly 1`] = `
+<div
+  className="row align-items-center"
+>
+  <div
+    className="col"
+  >
+    <b>
+      Admin
+    </b>
+  </div>
+  <div
+    className="col"
+  >
+    <button
+      className="btn btn-link"
+      onClick={[MockFunction]}
+      type="button"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        Log out
+      </a>
+    </button>
+  </div>
+</div>
+`;

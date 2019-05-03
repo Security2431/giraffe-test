@@ -20,7 +20,7 @@ const theme = {
 
 class ErrorMessage extends React.Component {
   static propTypes = {
-    error: PropTypes.instanceOf(Error),
+    error: PropTypes.string,
   };
 
   static defaultProps = {
@@ -52,9 +52,9 @@ class ErrorMessage extends React.Component {
 
     return (
       <div
-        role="alert"
         className={`alert alert-danger fade ${visible && 'show'}`}
         style={theme.alert}
+        role="alert"
       >
         <div className="container">
           {error}

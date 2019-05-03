@@ -5,6 +5,7 @@ class AdListPagination extends React.Component {
   static propTypes = {
     pageSize: PropTypes.number.isRequired,
     adsCount: PropTypes.number.isRequired,
+    currentPage: PropTypes.func.isRequired,
   };
 
   state = {

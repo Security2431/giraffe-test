@@ -18,13 +18,15 @@ const theme = {
 class AdList extends React.Component {
   static propTypes = {
     activeUser: PropTypes.string.isRequired,
-    ads: PropTypes.shape({
-      _id: PropTypes.string.isRequired,
-      author_name: PropTypes.string.isRequired,
-      created_at_datetime: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-    }),
+    ads: PropTypes.arrayOf(
+      PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        author_name: PropTypes.string.isRequired,
+        created_at_datetime: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+      }),
+    ),
     deleteAd: PropTypes.func.isRequired,
   };
 
